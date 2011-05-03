@@ -1,0 +1,64 @@
+/* GENERAL */
+body, div, span, h1, h2, h3, h4, h5, ul, li, input {margin:0; padding:0; border:none;}
+ul {list-style:none;}
+body      {position:relative; background-color: #eeeeee}
+div       {font-size:12px; font-color:#111; font-family:Helvetica;}
+.clear    {clear:both;}
+
+/*         */
+/* MENUBAR */
+/*         */
+
+#menubar  {height:100px; position:relative; margin-bottom:50px;}
+#menubar  {background:url(/images/bg_header.gif) repeat-x;}
+#menubar::selection {background: transparent;}
+
+  .wrapper {width:1060px; margin:0px auto; padding:0px 0px;}
+
+  #menubar #company_name    {float:left; height:50px; margin-top:40px;}
+  #menubar #company_name::selection {background: transparent;}
+  #menubar #company_name h3 {font-size:30px; font-weight:bold; color:#2f4d70; letter-spacing: 0.04em; text-shadow:#fff 0px 1px 0, #2f4d70 0 -1px 0; cursor:default;}
+  #menubar #company_name h3::selection {background: transparent; cursor:default;}
+
+  #menubar #page_title       {float:left; margin-left:270px; margin-top:40px;}
+  #menubar #page_title input {height:30px; width:300px; padding-left:5px; }
+  #menubar #page_title input {font-size:14px; background-color:rgba(256,256,256,.2); border:1px solid #9db8d0;}
+  #menubar #page_title input:focus {background-color:rgba(255,239,0,.22); outline:0px solid black;}
+
+  #menubar .center  {width:100px; margin:10px auto;}
+  #menubar .center h3 {font-size:12px; font-weight:normal; color:#fff;}
+
+  #menubar .links {float:right; margin-top:40px; margin-right:5px;}
+  #menubar .links {}
+  #menubar .links ul {list-style:none;}
+  #menubar .links li {float:left; margin-left:10px;}
+
+  #menubar .links a {color:#2f4d70; text-decoration:none;}
+  #menubar .links a:hover {text-decoration:underline;}
+  #menubar .links a:visited {color:#2f4d70;}
+
+
+#footer {height:100px; position:relative; margin-top:50px;}
+#footer {border-top:1px solid #101b2b;}
+
+#footer .wrapper {padding-top:20px; }
+#footer .wrapper h4 {color:#whitesmoke; font-weight:normal; font-size:16px;}
+
+#page_id  {position:absolute; top:-200px;}
+#user_id  {position:absolute; top:-200px;}
+
+/* FIXED */
+#ruler.fixed {position: fixed; top:25px; border-top:none; z-index:10;}
+#page.toolbarFixed {margin-top:92px;}
+
+
+/* FLASH */
+
+#flash {margin:5px auto; height:30px; width:200px; line-height:30px; }
+#flash {text-align:center; color:#eee;}
+#flash {background-color:#444; border:2px solid #efefef;}
+#flash:hover {cursor:default;}
+#flash span::selection {background: transparent}
+#flash::selection {background: transparent}
+
+#notifications {position:absolute; top:0px; width:100%;}

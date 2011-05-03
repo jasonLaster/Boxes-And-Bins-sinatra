@@ -1,0 +1,155 @@
+/* */
+
+*.transparent_selection::selection {background: transparent;}
+.hl-selected {background-color:#b4d5fe;}
+
+/* DIAGNOSTICS */
+.d.content .left_buffer {background-color:#8bb946;}
+.d.content .right_buffer {background-color:#cf4330;}
+.d.content .selected_elements {background-color:yellow;}
+.d.content span {border-right:2px solid blue;}
+.d.content p {border-right:2px solid red;}
+
+
+/* STYLES  */
+.style-font-bold {font-weight:bold;}
+.style-font-normal {font-weight:normal;}
+
+
+.color-1  {color:#ffffff;}
+.color-2  {color:#000000;}
+.color-3  {color:#eeece1;}
+.color-4  {color:#1f497d;}
+.color-5  {color:#4f81bd;}
+.color-6  {color:#c0504d;}
+.color-7  {color:#9bbb59;}
+.color-8  {color:#8064a2;}
+.color-9  {color:#4bacc6;}
+.color-10 {color:#f79646;}
+
+.color-11 {color:#f2f2f2;}
+.color-12 {color:#7f7f7f;}
+.color-13 {color:#ddd9c3;}
+.color-14 {color:#c6d9f1;}
+.color-15 {color:#dce6f2;}
+.color-16 {color:#f2dcdb;}
+.color-17 {color:#ebf1de;}
+.color-18 {color:#e6e0ec;}
+.color-19 {color:#dbeef4;}
+.color-20 {color:#fdeada;}
+.color-21 {color:#d9d9d9;}
+
+.color-22 {color:#595959;}
+.color-23 {color:#c4bd97;}
+.color-24 {color:#8eb4e3;}
+.color-25 {color:#b9cde5;}
+.color-26 {color:#e6b9b8;}
+.color-27 {color:#d7e4bd;}
+.color-28 {color:#ccc1da;}
+.color-29 {color:#b7dee8;}
+.color-30 {color:#fcd5b5;}
+.color-31 {color:#bfbfbf;}
+
+.color-32 {color:#404040;}
+.color-33 {color:#948a54;}
+.color-34 {color:#558ed5;}
+.color-35 {color:#95b3d7;}
+.color-36 {color:#d99694;}
+.color-37 {color:#c3d69b;}
+.color-38 {color:#b3a2c7;}
+.color-39 {color:#93cddd;}
+.color-40 {color:#fac090;}
+.color-41 {color:#a6a6a6;}
+.color-42 {color:#262626;}
+.color-43 {color:#4a452a;}
+.color-44 {color:#17375e;}
+.color-45 {color:#376092;}
+.color-46 {color:#953735;}
+.color-47 {color:#77933c;}
+.color-48 {color:#604a7b;}
+.color-49 {color:#31859c;}
+.color-50 {color:#e46c0a;}
+.color-51 {color:#7f7f7f;}
+.color-52 {color:#0d0d0d;}
+.color-53 {color:#1e1c11;}
+.color-54 {color:#254061;}
+.color-55 {color:#254061;}
+.color-56 {color:#632523;}
+.color-57 {color:#4f6228;}
+.color-58 {color:#403152;}
+.color-59 {color:#215968;}
+.color-60 {color:#984807;}
+
+.size-1  {font-size:1px ;}
+.size-2  {font-size:2px ;}
+.size-3  {font-size:3px ;}
+.size-4  {font-size:4px ;}
+.size-5  {font-size:5px ;}
+.size-6  {font-size:6px ;}
+.size-7  {font-size:7px ;}
+.size-8  {font-size:8px ;}
+.size-9  {font-size:9px ;}
+.size-10 {font-size:10px;}
+.size-11 {font-size:11px;}
+.size-12 {font-size:12px;}
+.size-13 {font-size:13px;}
+.size-14 {font-size:14px;}
+.size-15 {font-size:15px;}
+.size-16 {font-size:16px;}
+.size-17 {font-size:17px;}
+.size-18 {font-size:18px;}
+.size-19 {font-size:19px;}
+.size-20 {font-size:20px;}
+.size-21 {font-size:21px;}
+.size-22 {font-size:22px;}
+.size-23 {font-size:23px;}
+.size-24 {font-size:24px;}
+.size-25 {font-size:25px;}
+.size-26 {font-size:26px;}
+.size-27 {font-size:27px;}
+.size-28 {font-size:28px;}
+.size-29 {font-size:29px;}
+.size-30 {font-size:30px;}
+.size-31 {font-size:31px;}
+.size-32 {font-size:32px;}
+.size-33 {font-size:33px;}
+.size-34 {font-size:34px;}
+.size-35 {font-size:35px;}
+.size-36 {font-size:36px;}
+.size-37 {font-size:37px;}
+.size-38 {font-size:38px;}
+.size-39 {font-size:39px;}
+.size-40 {font-size:40px;}
+.size-41 {font-size:41px;}
+.size-42 {font-size:42px;}
+.size-43 {font-size:43px;}
+.size-44 {font-size:44px;}
+.size-45 {font-size:45px;}
+.size-46 {font-size:46px;}
+.size-47 {font-size:47px;}
+.size-48 {font-size:48px;}
+.size-49 {font-size:49px;}
+.size-50 {font-size:50px;}
+.size-51 {font-size:51px;}
+.size-52 {font-size:52px;}
+.size-53 {font-size:53px;}
+.size-54 {font-size:54px;}
+.size-55 {font-size:55px;}
+.size-56 {font-size:56px;}
+.size-57 {font-size:57px;}
+.size-58 {font-size:58px;}
+.size-59 {font-size:59px;}
+.size-60 {font-size:60px;}
+.size-61 {font-size:61px;}
+.size-62 {font-size:62px;}
+.size-63 {font-size:63px;}
+.size-64 {font-size:64px;}
+.size-65 {font-size:65px;}
+.size-66 {font-size:66px;}
+.size-67 {font-size:67px;}
+.size-68 {font-size:68px;}
+.size-69 {font-size:69px;}
+.size-70 {font-size:70px;}
+.size-71 {font-size:71px;}
+.size-72 {font-size:72px;}
+                         

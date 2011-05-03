@@ -1,0 +1,349 @@
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="nofollow" />
+
+    <link rel="stylesheet" href="/css/global.css" type="text/public/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/page.css" type="text/public/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/toolbar.css" type="text/public/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/editor-styles.css" type="text/public/css" media="screen" title="no title" charset="utf-8">
+
+    <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/underscore.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/sprintf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery-ui-1.8.6.custom.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/sanitize.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/js/magic.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/magic-editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/toolbar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/io.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+    <div id="menubar">
+    	<div class="wrapper">
+    		<div id="company_name">
+    			<h3>Boxes</h3>
+    		</div>
+    		<div id="page_title">
+    			<input value="Page Title">
+    		</div>
+    		<div class="links">
+    			<ul>
+    			</ul>
+    		</div>
+    	</div>
+    </div>
+
+
+    <div id="textbox-toolbar" class="new_toolbar">
+    	<div class="section">
+    		<div class="item dropdown width-90">
+    			<div class="option">
+    				<span class="value"></span>
+    				<div class="button"></div>
+    			</div>
+    			<div class="values"></div>
+    			<div class="clear"></div>
+    		</div>
+    	</div>
+    </div>
+
+
+    <div id="toolbar" class="toolbar">
+      <div class="section">
+        <div id="styles-button" class="deselected">
+          <div class="sources values">
+            <ul>
+              <li>New York Times</li>
+              <li>Reuters</li>
+              <li>Facebook</li>
+              <li>Google</li>
+            </ul>
+          </div>
+        </div>
+        <div id="styles-dropdown">
+          <div class="styles values">
+            <ul>
+              <li>Header 1</li>
+              <li>Header 2</li>
+              <li>Paragraph 1</li>
+              <li>Paragraph 2</li>
+              <li>Link</li>
+            </ul>
+          </div>      
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div class="section">
+        <div class="font dropdown" id="font-dropdown"> 
+          <span class="selected option">Helvetica</span>
+          <div class="arrows"></div>
+          <div class="font values">
+            <ul>
+              <li>Helvetica</li>
+              <li>Arial</li>
+              <li>Verdana</li>
+              <li>Times New-Roman</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="font-size dropdown text">
+          <input type="text" value="12" />
+          <div class="down-arrow"></div>
+          <div class="font-size values">
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+
+      <div class="section">
+        <div id="colors" class="2" style="background-color:#000000;">
+          <div class="colors values">
+            <ul class="theme clear">
+              <li class="1"  style="background-color:#ffffff;"></li>
+              <li class="2"  style="background-color:#000000;"></li>
+              <li class="3"  style="background-color:#eeece1;"></li>
+              <li class="4"  style="background-color:#1f497d;"></li>
+              <li class="5"  style="background-color:#4f81bd;"></li>
+              <li class="6"  style="background-color:#c0504d;"></li>
+              <li class="7"  style="background-color:#9bbb59;"></li>
+              <li class="8"  style="background-color:#8064a2;"></li>
+              <li class="9"  style="background-color:#4bacc6;"></li>
+              <li class="10" style="background-color:#f79646;"></li>
+            </ul>
+            <div class="clear" style="height:4px;"></div>
+            <ul class="base top">
+              <li class="11" style="background-color:#f2f2f2"></li>
+              <li class="12" style="background-color:#7f7f7f"></li>
+              <li class="13" style="background-color:#ddd9c3"></li>
+              <li class="14" style="background-color:#c6d9f1"></li>
+              <li class="15" style="background-color:#dce6f2"></li>
+              <li class="16" style="background-color:#f2dcdb"></li>
+              <li class="17" style="background-color:#ebf1de"></li>
+              <li class="18" style="background-color:#e6e0ec"></li>
+              <li class="19" style="background-color:#dbeef4"></li>
+              <li class="20" style="background-color:#fdeada"></li>
+            </ul>
+            <ul class="base">
+              <li class="21" style="background-color:#d9d9d9"></li>
+              <li class="22" style="background-color:#595959"></li>
+              <li class="23" style="background-color:#c4bd97"></li>
+              <li class="24" style="background-color:#8eb4e3"></li>
+              <li class="25" style="background-color:#b9cde5"></li>
+              <li class="26" style="background-color:#e6b9b8"></li>
+              <li class="27" style="background-color:#d7e4bd"></li>
+              <li class="28" style="background-color:#ccc1da"></li>
+              <li class="29" style="background-color:#b7dee8"></li>
+              <li class="30" style="background-color:#fcd5b5"></li>
+            </ul>
+            <ul class="base">
+              <li class="31" style="background-color:#bfbfbf"></li>
+              <li class="32" style="background-color:#404040"></li>
+              <li class="33" style="background-color:#948a54"></li>
+              <li class="34" style="background-color:#558ed5"></li>
+              <li class="35" style="background-color:#95b3d7"></li>
+              <li class="36" style="background-color:#d99694"></li>
+              <li class="37" style="background-color:#c3d69b"></li>
+              <li class="38" style="background-color:#b3a2c7"></li>
+              <li class="49" style="background-color:#93cddd"></li>
+              <li class="40" style="background-color:#fac090"></li>
+            </ul>
+            <ul class="base">
+              <li class="41" style="background-color:#a6a6a6"></li>
+              <li class="42" style="background-color:#262626"></li>
+              <li class="43" style="background-color:#4a452a"></li>
+              <li class="44" style="background-color:#17375e"></li>
+              <li class="45" style="background-color:#376092"></li>
+              <li class="46" style="background-color:#953735"></li>
+              <li class="47" style="background-color:#77933c"></li>
+              <li class="48" style="background-color:#604a7b"></li>
+              <li class="49" style="background-color:#31859c"></li>
+              <li class="50" style="background-color:#e46c0a"></li>
+            </ul>
+            <ul class="base bottom">
+              <li class="51" style="background-color:#7f7f7f"></li>
+              <li class="52" style="background-color:#0d0d0d"></li>
+              <li class="53" style="background-color:#1e1c11"></li>
+              <li class="54" style="background-color:#254061"></li>
+              <li class="55" style="background-color:#254061"></li>
+              <li class="56" style="background-color:#632523"></li>
+              <li class="57" style="background-color:#4f6228"></li>
+              <li class="58" style="background-color:#403152"></li>
+              <li class="59" style="background-color:#215968"></li>
+              <li class="60" style="background-color:#984807"></li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <ul class="options">
+          <li id="bold"></li>
+          <li id="italics"></li>
+          <li id="underline"></li>
+        </ul>
+        <ul class="paragraph options">
+          <li id="left-align"></li>
+          <li id="center-align"></li>
+          <li id="right-align"></li>
+          <li id="justify"></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+
+      <div class="right section" style="border:none;">
+        <div id="information" class="ui-icon ui-icon-radio-on"></div>
+      </div>
+      <div class="right section">
+    		<div id="viewing-modes">
+    			<ul>
+    				<li><div class="ui-icon ui-icon-pencil typing"></div></li>
+    				<li><div class="ui-icon ui-icon-wrench content-edit"></div></li>
+    				<li><div class="ui-icon ui-icon-document preview"></div></li>
+    			</ul>
+    		</div>
+    	</div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="toolbar2" class="toolbar">
+    	<div class="section">
+        <div id="styles-button" class="deselected">
+          <div class="sources values">
+            <ul>
+              <li>Text</li>
+              <li>Image</li>
+              <li>HTML</li>
+              <li>Table</li>
+              <li>Latex</li>
+              <li>Graph</li>
+            </ul>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+    	<div class="section">
+    		<span class="label">width</span>
+        <div class="bin-width dropdown text">
+          <input type="text" value="12" />
+          <div class="bin-width values">
+          </div>
+          <div class="clear"></div>
+        </div>
+    		<div class="ui-icon ui-icon-unlocked lock width" style="float:left;"> </div>
+
+    		<span class="label">height</span>
+        <div class="bin-height dropdown text">
+          <input type="text" value="12" />
+          <div class="bin-height values">
+          </div>  
+          <div class="clear"></div>
+        </div>
+    		<div class="ui-icon ui-icon-unlocked lock height" style="float:left;"> </div>
+
+        <div class="clear"></div>
+      </div>
+
+    	<div class="section">
+    		<span class="label">padding</span>
+        <div class="bin-padding dropdown text">
+          <input type="text" value="0px" />
+          <div class="bin-padding values">
+          </div>
+          <div class="clear"></div>
+        </div>
+
+    		<span class="label">margin</span>
+        <div class="bin-margin dropdown text">
+          <input type="text" value="0px" />
+          <div class="bin-margin values">
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+
+      <div class="right section" style="border:none;">
+        <div id="information" class="ui-icon ui-icon-radio-on"></div>
+      </div>
+      <div class="right section">
+    		<div id="viewing-modes">
+    			<ul>
+    				<li><div class="ui-icon ui-icon-pencil typing"></div></li>
+    				<li><div class="ui-icon ui-icon-wrench content-edit"></div></li>
+    				<li><div class="ui-icon ui-icon-document preview"></div></li>
+    			</ul>
+    		</div>
+    	</div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="toolbar3" class="toolbar">
+      <div class="right section" style="border:none;">
+        <div id="information" class="ui-icon ui-icon-radio-on"></div>
+      </div>
+      <div class="right section">
+    		<div id="viewing-modes">
+    			<ul>
+    				<li><div class="ui-icon ui-icon-pencil typing"></div></li>
+    				<li><div class="ui-icon ui-icon-wrench content-edit"></div></li>
+    				<li><div class="ui-icon ui-icon-document preview"></div></li>
+    			</ul>
+    		</div>
+    	</div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="ruler">
+        <% (0..9).each do |hundred| %>
+        <div class="hundred-pixels">
+            <ul class="pixels">
+                <li class="one"></li>
+                <li class="two"></li>
+                <li class="three"></li>
+                <li class="four"></li>
+                <li class="five"></li>
+                <li class="six"></li>
+                <li class="seven"></li>
+                <li class="eight"></li>
+                <li class="nine"></li>
+                <li class="ten"></li>
+            </ul>
+        </div>
+        <% end %>
+        <div class="hundred-pixels">
+            <ul class="pixels">
+                <li class="one"></li>
+                <li class="two"></li>
+                <li class="three"></li>
+                <li class="four"></li>
+                <li class="five"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page"> </div>
+
+    <div id="notifications">
+      <div id="flash">
+        <span>Document Saved</span>
+      </div>
+    </div>
+
+    <script type="text/javascript" charset="utf-8">
+      var content = {"box":{"1":{"id":1,"width":1000,"min_height":50,"content":"<p><span><br></span></p>"}},"container":{"1":{"id":1,"type":"simple","position":null,"a_child":1,"b_child":null}},"root":1,"title":"Page Title"};
+      var uid = "<%= @uid %>";
+    </script>
+</body>
+</html>
+
