@@ -16,8 +16,6 @@ var sel = null;
 var selectSpans = function() {
 
   editorTests();
-  
-
   $('content p span').attr('type', '');
   sel = text_selection;
 
@@ -43,9 +41,16 @@ var selectSpans = function() {
     anchor = {node: anchorNode, offset: anchorOffset};
   }
 
-  /* next step is to convert the anchor and focus node into left_selection and right_selection
-   * check if the selection is cross_paragraph or cross_span and then based on that,
-   * do one final check to see if the selection was left to right.
+  /* next step is to convert the anchor and focus node into left_selection and right_selection.
+	 * If the selection is from left to right, then the anchor is the left selection and the focus
+	 * is the right selection. To figure out if the selection is left to right, we need to know if
+	 * the selection crossed a paragraoh or a span.
+	 *
+	 * cross paragraph P1--a--P1P2--f--P2  or  P1--f--P1P2--a--P2 
+	 * cross span      A--f---AB---a--B    or  A--a---AB---f--B
+	 * neither         A--a--f--A          or A--f--a--A
+	 * where A,B are spans, P1,P2 are paragraphs, and a is an anchor, and f is a focus
+	 * 
    */
 
   cross_paragraph = $(anchor.node).parent().text() !== $(focus.node).parent().text();
@@ -53,14 +58,15 @@ var selectSpans = function() {
 
   if(cross_paragraph) {
     left_to_rt = (anchor.node.parent().index() < focus.node.parent().index());
-  } else {
-    left_to_rt =
-     cross_span
-     ? ($(anchor.node).index() < $(focus.node).index())
-     : (anchor.offset < focus.offset);
-  }
+  } else if (cross_span) {
+    left_to_rt = $(anchor.node).index() < $(focus.node).index();
+	} else {
+		left_to_rt = (anchor.offset < focus.offset);
+	}
+
   var left_selection  = left_to_rt ? anchor : focus;
   var right_selection = left_to_rt ? focus  : anchor;
+
 
   /* now that we know which was the left and right most selection
    * we can create a left or right buffer, if the left most selection is not at
@@ -88,48 +94,73 @@ var selectSpans = function() {
   }
 
 
-  /* now that we've created a left and right buffer if needed, we can get to work
-   * figuring out what the selected elements were. This is actually not that hard once we know
-   * if the selection crossed a span or a paragraph. The strategy here will be to
-   * merge together the left and right selections intelligently.
-   */
+	/* now that we've created a left and right buffer, we need to trim the left and right selections.
+	 * If the selection deos not cross a span, then the left and right selections are identical
+	 * and they both may or may not be offsetted.  A--L---R--B => L--R
+	 *
+	 * If the selection crosses a span, then trim the left selection by removing the text 
+	 * thats to the left of the selection and we trim the right selection by removing the text that's
+	 * to the right of the selection. A--L--A...B--R--B => L--A ... B--R
+	 *
+	 */
 
-  // trim the left & right selections if necessary
+
   if (!cross_span) {
     left_selection.node.text(left_selection.node.text().substring(left_selection.offset, right_selection.offset));
-    selected_elements = left_selection.node;
+    right_selection.node.text(right_selection.node.text().substring(left_selection.offset, right_selection.offset));
   } else {
     left_selection.node.text(left_selection.node.text().substring(left_selection.offset, text.length));
     right_selection.node.text(right_selection.node.text().substring(0, right_selection.offset));
+	}
 
-    if (!cross_paragraph) {
-      // get all of the paragraphs spans and then
-      // select all the spans inbetween the left and right span
-      selected_elements =
-        left_selection.node.parent().children()
-        .slice(left_selection.node.index(), right_selection.node.index() + 1);
-    } else {
 
-      // get the left and right spans from their respective paragraphs
-      // and then get all the spans from the inbetween paragraphs
-      // once we have all the spans, we'll merge them together and call it selected_elements
-      left_spans =
-        left_selection.node.parent().children()
-        .slice(left_selection.node.index(), left_spans.length);
 
-      paragraphs =
-        left_selection.node.parent().parent().children('p')
-        .slice(left_selection.node.parent().index() + 1, right_selection.node.parent().index()).children('span');
+  /* Now that we've created a left and right buffer and trimmed the left and right selections, 
+   * we can get to work figuring out all of the spans that were actually selected.
+   * This is actually not that hard because we have the left and rightmost spans and we know if the selection
+   * crossed any spans or paragraphs.
+   */
 
-      right_spans =
-        right_selection.node.parent().children()
-        .slice(0, right_selection.node.index() + 1);
+  if (!cross_span) {
+    selected_elements = left_selection.node;
+  } 
 
-      selected_elements = $.merge(left_spans, $.merge(paragraph_spans, right_spans));
-    }
+	else if (!cross_paragraph) {
+    selected_elements =
+      left_selection.node.parent().children()
+      .slice(left_selection.node.index(), right_selection.node.index() + 1);
+  } 
+
+	else {
+    left_spans =
+      left_selection.node.parent().children()
+      .slice(left_selection.node.index(), left_spans.length);
+
+    paragraphs =
+      left_selection.node.parent().parent().children('p')
+      .slice(left_selection.node.parent().index() + 1, right_selection.node.parent().index()).children('span');
+
+    right_spans =
+      right_selection.node.parent().children()
+      .slice(0, right_selection.node.index() + 1);
+
+    selected_elements = $.merge(left_spans, $.merge(paragraph_spans, right_spans));
   }
-  selected_elements.attr('type' ,'selected_elements').addClass('hl-selected');
+
+
+	/* Now that we have the selected elements, we can do whatever we like to them :)
+	 * at this point, all that means is updating their type attribute to selected_elements, 
+	 * and adding a class.
+	 */
+
+	selected_elements
+		.attr('type' ,'selected_elements')
+		.addClass('hl-selected');
+
 }
+
+
+
 
 /* Merge Spans takes the left buffer, selected elements, and the right buffer
  * and goes from left to right trying to combine the spans that are similar. 
@@ -207,6 +238,7 @@ var changeFontStyle = function(elements, style){
   transformText(elements, oldClass, newClass);
 }
 
+
 // TESTS
 var selectSpanTests = function(){
   // run through all the model tests for both left and right directions
@@ -267,6 +299,7 @@ var editorTests = function(){
   }
 }
 
+
 // dependent on text_selection & selected_elements
 var editor = function(type, param) {
 
@@ -291,3 +324,8 @@ var editor = function(type, param) {
 
   mergeSpans();
 }
+
+
+
+
+
