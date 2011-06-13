@@ -7,7 +7,6 @@ I've recently begun porting the rails code over to sinatra. The rational is that
 
 In order to complete the migration, I need to:
 
-
 1. setup the schema.
 
 2. create a template page, which will be copied everytime a new page is created.
