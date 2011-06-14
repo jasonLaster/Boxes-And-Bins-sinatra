@@ -153,10 +153,7 @@ var selectSpans = function() {
 	 * and adding a class.
 	 */
 
-	selected_elements
-		.attr('type' ,'selected_elements')
-		.addClass('hl-selected');
-
+	selected_elements.attr('type' ,'selected_elements');
 }
 
 

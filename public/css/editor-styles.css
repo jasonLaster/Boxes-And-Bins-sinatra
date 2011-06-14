@@ -1,7 +1,7 @@
 /* */
 
 *.transparent_selection::selection {background: transparent;}
-.hl-selected {background-color:#b4d5fe;}
+.content span[type="selected_elements"] {background-color:#b4d5fe;}
 
 /* DIAGNOSTICS */
 .d.content .left_buffer {background-color:#8bb946;}
