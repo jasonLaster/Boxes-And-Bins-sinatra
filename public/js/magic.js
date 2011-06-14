@@ -380,25 +380,7 @@ var events = function(){
       }
     });
 
-    // content
-    $('.body .content').live('mouseup', function(){
-      var sel = window.getSelection();
-      text_selection = !sel.isCollapsed 
-        ? {anchorNode: sel.anchorNode, anchorOffset: sel.anchorOffset, focusNode: sel.focusNode, focusOffset: sel.focusOffset} 
-        : null;
-      
-      selectSpans();
-
-      return false;
-    });
     
-    $('.body .content').live('mousedown', function(){
-      if(selected_elements != null) {
-       selected_elements.removeClass('hl-selected'); 
-       selected_elements = null
-      }
-    })
-
     $('.body .content').live('keyup', function(e){
       editorTests();
     });

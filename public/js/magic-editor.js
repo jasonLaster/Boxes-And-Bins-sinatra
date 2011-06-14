@@ -324,5 +324,27 @@ var editor = function(type, param) {
 
 
 
+var events = function(){
+
+	$('.content').live('mouseup', function(){
+	  var sel = window.getSelection();
+	  text_selection = !sel.isCollapsed 
+	    ? {anchorNode: sel.anchorNode, anchorOffset: sel.anchorOffset, focusNode: sel.focusNode, focusOffset: sel.focusOffset} 
+	    : null;
+
+    // console.log($(this).html(), text_selection);
+    if(text_selection) selectSpans();
+	  return false;
+	});
+
+
+  $('.content').live('mousedown', function(){
+		selected_elements = null;
+  	$('.content p span').attr('type', '');
+		return true;
+  })
+
+
+}
 
 
