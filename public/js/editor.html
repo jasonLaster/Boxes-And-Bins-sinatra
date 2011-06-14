@@ -1,0 +1,33 @@
+<html>
+	<head>
+		
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="magic-editor.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../css/editor-styles.css" type="text/public/css" media="screen" title="no title" charset="utf-8">
+		
+		<script type="text/javascript" charset="utf-8">
+
+			$(document).ready(function(){
+        events();
+			});
+
+		</script>
+		
+		<style type="text/css" media="screen">
+      body {background-color:#efefef;}
+		  .content {width:800px; height:500px; padding:15px; margin:100 auto; background-color:white; border:1px solid #739ae2;}
+		</style>
+		
+	</head>
+	<body>
+	  
+	    <a onclick="editor('style', 'bold');" href="#" >bold</a>
+	    <a onclick="editor('style', 'normal');" href="#">normal</a>
+	    	  
+	    <div class="content" contenteditable="true">
+	      <p><span><br></span></p>
+	    </div>
+	  
+	</body>
+</html>
