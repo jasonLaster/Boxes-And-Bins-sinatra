@@ -16,7 +16,7 @@ var sel = null;
 var selectSpans = function() {
 
   editorTests();
-  $('content p span').attr('type', '');
+  $('.content p span').attr('type', '');
   sel = text_selection;
 
   /* figure out the text selection focus and anchor
@@ -88,7 +88,7 @@ var selectSpans = function() {
   // right_buffer
   if (right_selection.offset != right_selection.node.text().length) {
     right_buffer = right_selection.node.clone();
-    right_buffer.text(right_buffer.text().substring(right_selection.offset, text.length));
+    right_buffer.text(right_buffer.text().substring(right_selection.offset, right_buffer.text().length));
     right_selection.node.after(right_buffer);
     right_buffer.attr('type' ,'right_buffer');
   }
@@ -107,9 +107,8 @@ var selectSpans = function() {
 
   if (!cross_span) {
     left_selection.node.text(left_selection.node.text().substring(left_selection.offset, right_selection.offset));
-    right_selection.node.text(right_selection.node.text().substring(left_selection.offset, right_selection.offset));
   } else {
-    left_selection.node.text(left_selection.node.text().substring(left_selection.offset, text.length));
+    left_selection.node.text(left_selection.node.text().substring(left_selection.offset, left_selection.offset + left_selection.node.text().length));
     right_selection.node.text(right_selection.node.text().substring(0, right_selection.offset));
 	}
 
@@ -320,6 +319,7 @@ var editor = function(type, param) {
   }
 
   mergeSpans();
+  $('.content p span').attr('type', '');
 }
 
 
