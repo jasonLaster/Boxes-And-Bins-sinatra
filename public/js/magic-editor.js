@@ -175,8 +175,8 @@ var mergeSpans = function(span_attr) {
    *   2. get list of paragraph indices 
    *   3. get list of spans for each paragraph [[spans], [spans]]
    */
-  var all_spans = $($.merge($.merge($.merge([], left_buffer), selected_elements), right_buffer));
 
+  var all_spans = $($.merge($.merge($.merge([], left_buffer), selected_elements), right_buffer));
 
   if (cross_paragraph) {
     var paragraphs = _.uniq(_.map(all_spans, function(i){ 
@@ -200,10 +200,10 @@ var mergeSpans = function(span_attr) {
     prev = $(spans[0]);
     for(var i = 1; i < spans.length; i++) {
       var current = $(spans[i]);
-      if (prev.attr('class') === current.attr('class')) {
+      if (prev.attr(span_attr) === current.attr(span_attr) || current.attr(span_attr) == '') {
         current.text(prev.text() + current.text());
         prev.remove();
-      }
+			}
       prev = current;
     }
   });
@@ -306,8 +306,8 @@ var editorTests = function(){
 // dependent on text_selection & selected_elements
 var editor = function(type, param) {
 
-  if (!text_selection) {
-    console.log('fail');
+  if (!text_selection  || selected_elements.length == 0) {
+    console.warn('no text selection');
     return
   }
 
