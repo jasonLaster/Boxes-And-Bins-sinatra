@@ -153,6 +153,7 @@ var selectSpans = function() {
 	 */
 
 	selected_elements.attr('type' ,'selected_elements');
+	mergeSpans('type');
 }
 
 
@@ -163,7 +164,7 @@ var selectSpans = function() {
  * This is really important because otherwise, the spans will reduce to one character. 
  */
 
-var mergeSpans = function() {
+var mergeSpans = function(span_attr) {
 
   /* We want to get all the spans for each paragraph.
    * If the selection spans multiple paragraphs, we'll have to split it up by paragraph. [[spans], [spans]]
@@ -322,7 +323,7 @@ var editor = function(type, param) {
       break;
   }
 
-  mergeSpans();
+  mergeSpans('class');
   $('.content p span').attr('type', '');
 }
 
