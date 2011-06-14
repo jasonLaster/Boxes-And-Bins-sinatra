@@ -167,6 +167,12 @@ var mergeSpans = function() {
 
   /* We want to get all the spans for each paragraph.
    * If the selection spans multiple paragraphs, we'll have to split it up by paragraph. [[spans], [spans]]
+   * 
+   * We do this by: 
+   * 1. get list of spans selected (all_spans)
+   *   if cross_paragraph
+   *   2. get list of paragraph indices 
+   *   3. get list of spans for each paragraph [[spans], [spans]]
    */
   var all_spans = $($.merge($.merge($.merge([], left_buffer), selected_elements), right_buffer));
 
@@ -303,8 +309,6 @@ var editor = function(type, param) {
     console.log('fail');
     return
   }
-
-  // selectSpans();
 
   switch (type) {
     case 'color':
