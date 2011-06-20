@@ -153,7 +153,6 @@ var selectSpans = function() {
 	 */
 
 	selected_elements.attr('type' ,'selected_elements');
-	mergeSpans('type');
 }
 
 
@@ -164,7 +163,7 @@ var selectSpans = function() {
  * This is really important because otherwise, the spans will reduce to one character. 
  */
 
-var mergeSpans = function(span_attr) {
+var _mergeSpans = function(span_attr) {
 
   /* We want to get all the spans for each paragraph.
    * If the selection spans multiple paragraphs, we'll have to split it up by paragraph. [[spans], [spans]]
@@ -207,6 +206,32 @@ var mergeSpans = function(span_attr) {
       prev = current;
     }
   });
+}
+
+
+var mergeSpans = function(){
+
+  // get the spans in each paragraph
+  var p_spans = [];
+  var ps = $('.content p');  
+  for (i = 0; i < ps.length; i++) p_spans[i] = $(ps[i]).children('span');
+
+ 
+ // merge two spans that share the same type 
+ for(var i=0; i<p_spans.length; i++) {
+   var spans = p_spans[i];
+   var prev = $(spans[0]);
+   for(var j = 1; j < spans.length; j++) {
+     var current = $(spans[j]);
+     if (prev.attr('class') === current.attr('class') && prev.attr('type') === current.attr('type')) {
+       current.text(prev.text() + current.text());
+       prev.remove();
+			}
+     prev = current;
+   }
+ }
+
+  console.log(ps);
 }
 
 
@@ -322,9 +347,9 @@ var editor = function(type, param) {
       changeFontStyle(selected_elements, param);
       break;
   }
-
-  mergeSpans('class');
+  
   $('.content p span').attr('type', '');
+  mergeSpans();
 }
 
 
@@ -332,13 +357,14 @@ var editor = function(type, param) {
 var events = function(){
 
 	$('.content').live('mouseup', function(){
+    $('.content p span').attr('type', '');
 	  var sel = window.getSelection();
 	  text_selection = !sel.isCollapsed 
 	    ? {anchorNode: sel.anchorNode, anchorOffset: sel.anchorOffset, focusNode: sel.focusNode, focusOffset: sel.focusOffset} 
 	    : null;
 
-    // console.log($(this).html(), text_selection);
     if(text_selection) selectSpans();
+    mergeSpans();
 	  return false;
 	});
 
