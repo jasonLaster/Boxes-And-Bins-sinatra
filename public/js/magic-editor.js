@@ -231,7 +231,6 @@ var mergeSpans = function(){
    }
  }
 
-  console.log(ps);
 }
 
 
@@ -325,6 +324,36 @@ var editorTests = function(){
       }
     });
   }
+
+}
+
+
+var spanTests = function(){
+  var s1 = $('<span>s1</span>');
+  var s2 = $('<span type class="">s2</span>');
+  var s3 = $('<span type class="">s3</span>');
+  var s4 = $('<span type class="">s4</span>');
+  
+  var content = $('<div class="content" contenteditable="true"><p></p></div>');
+  var initial_span = $('<span> <br> </span>');
+  
+
+  // print initial content
+  var t1 = content.clone();
+  t1.find('p').html(initial_span);
+  console.log(t1.html());
+  
+  // want to test merge spans
+  // create a bunch of spans and put them in different sequences. 
+  // see if they merge correctly
+  
+  // also want to test Select Spans
+  // need to break the method into different parts
+  // the first will be weird (create an artificial selection) and see if we can create anchor and node elements
+  // the second will be easier, create anchor and focus nodes to figure out cross_paragraph, cross_span, and left_to_rt
+  // ...
+  // all of these tests will require a couple corpii (spans and paragraphs organized in various ways)
+  
 }
 
 
